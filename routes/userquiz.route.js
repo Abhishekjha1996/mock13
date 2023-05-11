@@ -5,13 +5,13 @@ const bcrypt = require("bcrypt");
 const { quizModel } = require("../model/quiz.model");
 
 quizRoute.get("/", async (req, res) => {
-  res.send("helloe");
-  // try {
-  //     const data = await userquizModel.find()
-  //     res.status(404).send( data );
-  // } catch (error) {
-  //     res.status(404).send({ msg: error.message });
-  // }
+
+  try {
+      const data = await quizModel.find()
+      res.status(404).send( data );
+  } catch (error) {
+      res.status(404).send({ msg: error.message });
+  }
 });
 
 quizRoute.post("/quiz", async (req, res) => {
